@@ -1,0 +1,249 @@
+/* font-family: 'Iceland', cursive;
+font-family: 'Open Sans', monospace;
+font-family: 'Roboto', sans-serif;
+*/
+:root {
+  --bg: #161e2c;
+  --black-bg-lite: #1b2435;
+  --text-gray: #9b9a9a;
+  --text-color: #d8dce6;
+  --blue-light: #0ee9cb;
+  --red: #f35353;
+  --orange: #ff8a37;
+  --blue: #347fd5;
+  --yellow: #ffc137;
+  --pink: hsl(348, 97%, 59%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+body {
+  font-family: "Open Sans", monospace;
+  background: var(--bg);
+}
+/* START header*/
+
+.header .nav {
+  background: var(--black-bg-lite);
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  color: var(--white-color);
+  margin-bottom: 30px;
+  border-bottom-style: none;
+  border-bottom: 1px solid #2a3549;
+}
+
+.nav .nav-item {
+  font-size: 1em;
+}
+.nav-item:nth-child(2) {
+  color: white;
+  background: var(--pink);
+  padding: 10px 40px;
+  transition: 0.2s;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.nav-item:nth-child(2):hover {
+  background: hsl(348, 98%, 64%);
+}
+/*END header */
+.world {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  max-width: 3000px;
+  margin: 0 10px;
+}
+.aside-world {
+  width: 25%;
+  margin-top: 40px;
+}
+
+.aside-world::before {
+  content: "";
+  display: inline-block;
+  background: var(--red);
+}
+.event-time-lap {
+  display: flex;
+  justify-content: center;
+  padding: 0px 10px;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.notice-list {
+  padding: 1em;
+  box-shadow: -1px 1px 0px 0px var(--pink);
+  border-radius: 20px;
+}
+.notice-item {
+  margin-bottom: 1em;
+}
+
+.event-time-lap .fa-chart-bar {
+  color: var(--blue-light);
+  font-size: 1.7em;
+  padding: 0px 10px;
+}
+.world-notice {
+  border-radius: 15px;
+  width: 100%;
+  background: var(--black-bg-lite);
+  font-size: 1.1em;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.notice-new-notice {
+  color: var(--blue-light);
+}
+
+.notice-new-notice::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--blue-light);
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+/* 
+Icons */
+
+.fa-long-arrow-alt-right {
+  font-size: 1.3em;
+  padding-right: 0.2em;
+  color: var(--pink);
+}
+
+/*END Icons */
+
+/*START Informacion global */
+.world-info {
+  border-radius: 1em;
+  width: 73%;
+  padding-top: 40px;
+}
+
+.world-title {
+  margin-left: 10%;
+}
+
+.world-info .info-title {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30px;
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.world-info .info-text {
+  font-size: 20px;
+  color: var(--text-gray);
+}
+.world-data {
+  height: 450px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.world-data .card {
+  font-family: "Iceland", monospace;
+  width: 30%;
+  margin: 0px 10px;
+  height: 170px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 0px;
+  font-weight: 400;
+  border-radius: 10px;
+  box-shadow: 0px 1px 0px 1px #1f293b;
+  font-size: 56px;
+}
+.world-data-text {
+  color: var(--text-gray1);
+  font-size: 0.4em;
+  font-family: "Open Sans", normal;
+  font-weight: 400;
+}
+.world-data-num {
+  font-size: 0.8em;
+  color: var(--text-color);
+}
+.confirmed .world-data-num {
+  color: var(--blue-light);
+}
+.dead .world-data-num {
+  color: var(--red);
+}
+
+.recovered .world-data-num {
+  color: var(--blue);
+}
+
+.un-countries .world-data-num {
+  color: var(--orange);
+}
+
+.fatality-rate .world-data-num {
+  color: var(--yellow);
+}
+
+/*START Global data per countries section TABLE*/
+
+.global-data {
+  width: 100%;
+  overflow: scroll;
+  height: 200px;
+}
+
+.table {
+  width: 200px;
+  color: black;
+}
+
+.table th,
+td {
+  font-size: 40px;
+}
+
+.global .table .table-title {
+  font-size: 60px;
+  color: #0ee9cb;
+}
+
+/*END Global data per countries section TABLE*/
+.article {
+  margin-top: 80px;
+  margin-bottom: 200px;
+  background: var(--bg);
+  width: 200px;
+  height: 200px;
+  overflow: scroll;
+}
+
+.article .p {
+  width: 400px;
+}
+
+.hola {
+  background: red;
+  width: 120px;
+  display: flex;
+  flex-flow: column wrap;
+}
