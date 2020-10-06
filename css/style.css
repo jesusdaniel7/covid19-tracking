@@ -49,18 +49,21 @@ body {
   transition: 0.2s;
   border-radius: 20px;
   cursor: pointer;
+  border: 2px solid var(--pink);
 }
 
 .nav-item:nth-child(2):hover {
-  background: hsl(348, 98%, 64%);
+  background: var(--bg);
+  color:var(--pink);
+  border: 2px solid var(--pink);
 }
 /*END header */
 .world {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  max-width: 3000px;
   margin: 0 10px;
+  height: 600px;
 }
 .aside-world {
   width: 25%;
@@ -91,7 +94,7 @@ body {
 }
 
 .event-time-lap .fa-chart-bar {
-  color: var(--blue-light);
+  color: var(--blue);
   font-size: 1.7em;
   padding: 0px 10px;
 }
@@ -105,7 +108,7 @@ body {
 }
 
 .notice-new-notice {
-  color: var(--blue-light);
+  color: var(--text-color);
 }
 
 .notice-new-notice::before {
@@ -113,7 +116,7 @@ body {
   display: inline-block;
   width: 10px;
   height: 10px;
-  background: var(--blue-light);
+  background: var(--pink);
   margin-right: 10px;
   border-radius: 5px;
 }
@@ -180,70 +183,114 @@ Icons */
   font-size: 0.4em;
   font-family: "Open Sans", normal;
   font-weight: 400;
+  
+  color:var(--text-gray);
 }
 .world-data-num {
   font-size: 0.8em;
   color: var(--text-color);
 }
-.confirmed .world-data-num {
-  color: var(--blue-light);
-}
-.dead .world-data-num {
-  color: var(--red);
-}
-
-.recovered .world-data-num {
-  color: var(--blue);
-}
-
-.un-countries .world-data-num {
-  color: var(--orange);
-}
-
-.fatality-rate .world-data-num {
-  color: var(--yellow);
-}
 
 /*START Global data per countries section TABLE*/
+.countries-data .countries-data-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
 
-.global-data {
-  width: 100%;
-  overflow: scroll;
-  height: 200px;
+.countries-data .countries-data-header .searh-bar {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.countries-data .search-bar-label {
+  font-size: 1.2em;
+  padding-right: 10px;
+}
+.countries-data .search-bar-input {
+  background: var(--black-bg-lite);
+  border-style: none;
+  background: var(--bg);
+  padding: 0.7em;
+  border-radius: 0.5em;
+  border: 2px solid var(--bg);
+  font-size: 1em;
+}
+.countries-data .search-bar-input:focus {
+  color: pink;
+  outline: none;
+  border-style: none;
+  border: 2px solid var(--pink);
 }
 
 .table {
-  width: 200px;
-  color: black;
+  height: 800px;
+  margin: 0px;
+  padding: 0px;
+  overflow: auto;
+  margin-top: 1em;
+}
+.countries-data {
+  background: var(--black-bg-lite);
+  width: 85%;
+  margin: 0 auto;
+  padding: 2em;
+  border-radius: 1em;
+  max-width: 2100px;
+  
 }
 
-.table th,
-td {
-  font-size: 40px;
+.countries-data .fa-globe{
+  padding-right: 10px;
 }
-
-.global .table .table-title {
-  font-size: 60px;
-  color: #0ee9cb;
+.countries-data td:nth-child(1){
+  color: var(--blue);
 }
-
-/*END Global data per countries section TABLE*/
-.article {
-  margin-top: 80px;
-  margin-bottom: 200px;
-  background: var(--bg);
-  width: 200px;
-  height: 200px;
-  overflow: scroll;
-}
-
-.article .p {
-  width: 400px;
-}
-
-.hola {
-  background: red;
-  width: 120px;
+.countries-data-title {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: row;
+  align-items: center;
+  
 }
+.countries-data-h2 {
+  font-size: 2em;
+}
+.countries-data .fa-globe-americas {
+  font-size: 2em;
+  color: white;
+  margin-right: 0.2em;
+}
+
+.content-table {
+  width: 100%;
+  background: var(--bg);
+  padding: 30px;
+  font-size: 1em;
+  border-collapse: collapse;
+}
+.content-table tr {
+  border: 3px solid var(--black-bg-lite);
+  text-align: left;
+}
+.content-table th,
+.content-table td {
+  padding: 15px 10px;
+}
+.content-table tbody tr:nth-last-of-type(even) {
+  background: var(--black-bg-lite);
+}
+.content-table th {
+  background: var(--pink);
+  position: sticky;
+  top: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* 
+.content-table thead tr th{
+  color: var(--text-color);
+  text-align: left;
+} */
+/*END Global data per countries section TABLE*/
