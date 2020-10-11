@@ -5,7 +5,7 @@ font-family: 'Roboto', sans-serif;
 :root {
   --bg: #161e2c;
   --black-bg-lite: #1b2435;
-  --text-gray: #9b9a9a;
+  --text-gray: #bebebe;
   --text-color: #d8dce6;
   --blue-light: #0ee9cb;
   --red: #f35353;
@@ -14,6 +14,10 @@ font-family: 'Roboto', sans-serif;
   --yellow: #ffc137;
   --pink: hsl(348, 97%, 59%);
 }
+/* START Making styles */
+
+/* ENDMaking styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -43,19 +47,17 @@ body {
   font-size: 1em;
 }
 .nav-item:nth-child(2) {
-  color: white;
-  background: var(--pink);
-  padding: 10px 40px;
+  background: var(--bg);
+  padding: 8px 25px;
   transition: 0.2s;
-  border-radius: 20px;
+  border-radius: 0.5em;
   cursor: pointer;
-  border: 2px solid var(--pink);
+  border: 2px solid var(--blue);
 }
 
 .nav-item:nth-child(2):hover {
   background: var(--bg);
-  color:var(--pink);
-  border: 2px solid var(--pink);
+  border: 2px solid var(--blue-light);
 }
 /*END header */
 .world {
@@ -63,7 +65,7 @@ body {
   flex-flow: row wrap;
   justify-content: space-around;
   margin: 0 10px;
-  height: 600px;
+  margin-bottom: 30px;
 }
 .aside-world {
   width: 25%;
@@ -86,7 +88,7 @@ body {
 
 .notice-list {
   padding: 1em;
-  box-shadow: -1px 1px 0px 0px var(--pink);
+  box-shadow: -3px 1px 4px 0px #1f293b;
   border-radius: 20px;
 }
 .notice-item {
@@ -94,7 +96,6 @@ body {
 }
 
 .event-time-lap .fa-chart-bar {
-  color: var(--blue);
   font-size: 1.7em;
   padding: 0px 10px;
 }
@@ -123,11 +124,15 @@ body {
 
 /* 
 Icons */
-
+.world-title-div{
+  position: relative;
+}
 .fa-long-arrow-alt-right {
   font-size: 1.3em;
   padding-right: 0.2em;
   color: var(--pink);
+  position: absolute;
+  bottom: 20%;
 }
 
 /*END Icons */
@@ -144,9 +149,9 @@ Icons */
 }
 
 .world-info .info-title {
-  font-size: 25px;
+  font-size: 1.3em;
   font-weight: 700;
-  line-height: 30px;
+  line-height: 1.5em;
   display: inline-block;
   padding-right: 10px;
 }
@@ -156,11 +161,11 @@ Icons */
   color: var(--text-gray);
 }
 .world-data {
-  height: 450px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  padding: 20px 0px;
 }
 
 .world-data .card {
@@ -169,7 +174,7 @@ Icons */
   margin: 0px 10px;
   height: 170px;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
   justify-content: space-around;
   align-items: center;
   padding: 30px 0px;
@@ -177,21 +182,87 @@ Icons */
   border-radius: 10px;
   box-shadow: 0px 1px 0px 1px #1f293b;
   font-size: 56px;
+  margin-bottom: 20px;
 }
+
 .world-data-text {
   color: var(--text-gray1);
   font-size: 0.4em;
   font-family: "Open Sans", normal;
   font-weight: 400;
-  
-  color:var(--text-gray);
+
+  color: var(--text-gray);
 }
 .world-data-num {
-  font-size: 0.8em;
+  font-size: 0.7em;
   color: var(--text-color);
 }
 
+.world-data .card:nth-child(1) .world-data-num {
+  color: var(--blue);
+}
+.world-data .card:nth-child(2) .world-data-num {
+  color: var(--pink);
+}
+.world-data .card:nth-child(3) .world-data-num {
+  color: var(--blue-light);
+}
+.world-data .card:nth-child(4) .world-data-num {
+  color: var(--yellow);
+}
+.world-data .card:nth-child(5) .world-data-num {
+  color: var(--red);
+}
+.world-data .card:nth-child(6) .world-data-num {
+  color: var(--orange);
+}
+
 /*START Global data per countries section TABLE*/
+.countries-data {
+  background: var(--black-bg-lite);
+  width: 85%;
+  margin: 0 auto;
+  padding: 2em;
+  border-radius: 1em;
+  max-width: 2100px;
+}
+
+.countries-data .fa-globe {
+  padding-right: 10px;
+}
+
+.countries-data td:nth-child(2) {
+  color: var(--blue-light);
+}
+.countries-data td:nth-child(3) {
+  color: var(--red);
+}
+.countries-data td:nth-child(4) {
+  color: var(--orange);
+}
+.countries-data td:nth-child(5) {
+  color: var(--pink);
+}
+.countries-data td:nth-child(6) {
+  color: var(--blue);
+}
+.countries-data td:nth-child(7) {
+  color: var(--yellow);
+}
+.countries-data-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.countries-data-h2 {
+  font-size: 1.3em;
+}
+.countries-data .fa-globe-americas {
+  font-size: 1.3em;
+  color: white;
+  margin-right: 0.2em;
+}
+
 .countries-data .countries-data-header {
   display: flex;
   align-items: center;
@@ -199,13 +270,14 @@ Icons */
   padding: 0px 10px;
 }
 
-.countries-data .countries-data-header .searh-bar {
+.countries-data .countries-data-header .search-bar {
   display: flex;
   align-items: center;
   margin-left: 10px;
 }
 .countries-data .search-bar-label {
-  font-size: 1.2em;
+  color: var(--text-gray);
+  font-size: 1em;
   padding-right: 10px;
 }
 .countries-data .search-bar-input {
@@ -215,7 +287,7 @@ Icons */
   padding: 0.7em;
   border-radius: 0.5em;
   border: 2px solid var(--bg);
-  font-size: 1em;
+  font-size: 0.7em;
 }
 .countries-data .search-bar-input:focus {
   color: pink;
@@ -225,43 +297,12 @@ Icons */
 }
 
 .table {
-  height: 800px;
+  height: 500px;
   margin: 0px;
   padding: 0px;
   overflow: auto;
   margin-top: 1em;
 }
-.countries-data {
-  background: var(--black-bg-lite);
-  width: 85%;
-  margin: 0 auto;
-  padding: 2em;
-  border-radius: 1em;
-  max-width: 2100px;
-  
-}
-
-.countries-data .fa-globe{
-  padding-right: 10px;
-}
-.countries-data td:nth-child(1){
-  color: var(--blue);
-}
-.countries-data-title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  
-}
-.countries-data-h2 {
-  font-size: 2em;
-}
-.countries-data .fa-globe-americas {
-  font-size: 2em;
-  color: white;
-  margin-right: 0.2em;
-}
-
 .content-table {
   width: 100%;
   background: var(--bg);
@@ -269,19 +310,21 @@ Icons */
   font-size: 1em;
   border-collapse: collapse;
 }
+
 .content-table tr {
   border: 3px solid var(--black-bg-lite);
   text-align: left;
 }
 .content-table th,
 .content-table td {
-  padding: 15px 10px;
+  padding: 10px 6px;
 }
 .content-table tbody tr:nth-last-of-type(even) {
   background: var(--black-bg-lite);
 }
 .content-table th {
   background: var(--pink);
+
   position: sticky;
   top: 0;
   margin: 0;
@@ -294,3 +337,129 @@ Icons */
   text-align: left;
 } */
 /*END Global data per countries section TABLE*/
+
+/* custom scrool bar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background: #445175;
+  background: linear-gradient(transparent, #445175);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink);
+}
+
+/* Responsive design */
+@media screen and (max-width: 1200px) {
+  .aside-world {
+    width: 28%;
+  }
+  .world-info {
+    width: 70%;
+  }
+  .world-data {
+    flex-flow: row wrap;
+  }
+
+  .world-data .card {
+    width: 45%;
+    height: 100px;
+    padding: 0;
+  }
+  .countries-data{
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .aside-world {
+    width: 40%;
+  }
+  .world-info {
+    width: 58%;
+  }
+  .world-data .card {
+    width: 100%;
+  }
+  .countries-data{
+    width: 98%;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 0;
+  }
+  .table {
+    width: 100%;
+    padding: 0;
+  }
+  .table .content-table {
+    padding: 0;
+    width: 100%;
+    margin: 0;
+  }
+  .countries-data .countries-data-header{
+    display: flex;
+    flex-flow: column;
+    text-align: left;
+    justify-content: center;
+    padding:10px;
+    align-items: flex-start;
+  }
+  .countries-data .countries-data-title{
+    margin-bottom: 10px;
+  }
+
+  .countries-data .countries-data-header .search-bar{
+    width: 100%;
+    padding: 0;
+    margin: 0px;
+  }
+
+  .countries-data .countries-data-header .search-bar-input{
+    display: block;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .aside-world {
+    text-align: center;
+    width: auto;
+    padding: 10px;
+    margin: 0 auto;
+    display: none;
+  }
+
+  .world {
+    width: 100%;
+    margin: 0;
+  }
+  .world-data .card {
+    height: 80px;
+    box-shadow: none;
+    font-weight: bold;
+    width: 100%;
+  }
+  .world-info {
+    width: 100%;
+  }
+  .world-title {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+
+  }
+  
+  .world-title-div {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .info-text{
+    text-align: center;
+  }
+ 
+ 
+}
