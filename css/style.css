@@ -124,7 +124,7 @@ body {
 
 /* 
 Icons */
-.world-title-div{
+.world-title-div {
   position: relative;
 }
 .fa-long-arrow-alt-right {
@@ -315,9 +315,11 @@ Icons */
   border: 3px solid var(--black-bg-lite);
   text-align: left;
 }
+
 .content-table th,
 .content-table td {
   padding: 10px 6px;
+  font-weight: 600;
 }
 .content-table tbody tr:nth-last-of-type(even) {
   background: var(--black-bg-lite);
@@ -369,7 +371,7 @@ Icons */
     height: 100px;
     padding: 0;
   }
-  .countries-data{
+  .countries-data {
     width: 95%;
   }
 }
@@ -384,7 +386,7 @@ Icons */
   .world-data .card {
     width: 100%;
   }
-  .countries-data{
+  .countries-data {
     width: 98%;
     margin: 0 auto;
     padding: 0;
@@ -399,25 +401,25 @@ Icons */
     width: 100%;
     margin: 0;
   }
-  .countries-data .countries-data-header{
+  .countries-data .countries-data-header {
     display: flex;
     flex-flow: column;
     text-align: left;
     justify-content: center;
-    padding:10px;
+    padding: 10px;
     align-items: flex-start;
   }
-  .countries-data .countries-data-title{
+  .countries-data .countries-data-title {
     margin-bottom: 10px;
   }
 
-  .countries-data .countries-data-header .search-bar{
+  .countries-data .countries-data-header .search-bar {
     width: 100%;
     padding: 0;
     margin: 0px;
   }
 
-  .countries-data .countries-data-header .search-bar-input{
+  .countries-data .countries-data-header .search-bar-input {
     display: block;
     width: 100%;
   }
@@ -450,16 +452,13 @@ Icons */
     margin: 0 auto;
     padding: 0;
     width: 100%;
-
   }
-  
+
   .world-title-div {
     margin: 0 auto;
     text-align: center;
   }
-  .info-text{
+  .info-text {
     text-align: center;
   }
- 
- 
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css" />
-    <link
+     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.0/css/all.css"
       integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q"
@@ -14,13 +14,13 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Iceland&family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@100;300;400;500;700&display=swap"
       rel="stylesheet"
-    />
+    /> 
   </head>
   <body>
     <header class="header">
       <nav class="nav">
         <div class="nav-item">CORONANDO</div>
-        <div class="nav-item">Buy me a coffe</div>
+        <div class="nav-item">Donar</div>
       </nav>
     </header>
 
@@ -29,7 +29,7 @@
         <aside class="aside-world">
           <div class="event-time-lap">
             <i class="far fa-chart-bar"></i>
-            <h3>Event TimeLap (GMT)</h3>
+            <h3>Linea de tiempo (GMT)</h3>
             </div>
           <article class="world-notice">
             <div class="search-bar"></div>
@@ -72,30 +72,30 @@
         
             <p class="info-text">Actualizacion Reciente</p>
           </div>
-          <div class="world-data">
-            <div class="card confirmed">
-              <div class="world-data-num">595,039,3039</div>
-              <div class="world-data-text">Confirmed</div>
+          <div class="world-data" id="world-data">
+            <div class="card new-confirmed">
+              <div class="world-data-num" id="new-confirmed">-</div>
+              <div class="world-data-text">Nuevos casos</div>
             </div>
-            <div class="card dead">
-              <div class="world-data-num">595,039,3039</div>
-              <div class="world-data-text">dead</div>
+            <div class="card confirmed" >
+              <div class="world-data-num" id="confirmed">-</div>
+              <div class="world-data-text">Total de casos</div>
             </div>
-            <div class="card recovered">
-              <div class="world-data-num">595,039,3039</div>
-              <div class="world-data-text">recovered</div>
+            <div class="card new-deaths">
+              <div class="world-data-num" id="new-deaths">-</div>
+              <div class="world-data-text">Nuevas muertes</div>
             </div>
-            <div class="card un-countries">
-              <div class="world-data-num">595,039,3039</div>
-              <div class="world-data-text">UN countries</div>
+            <div class="card deaths" >
+              <div class="world-data-num" id="deaths">-</div>
+              <div class="world-data-text">Total de muertes</div>
             </div>
-            <div class="card fatality-rate">
-              <div class="world-data-num">595,039,3039</div>
-              <div class="world-data-text">Fatality Rate</div>
+            <div class="card new-recovered" >
+              <div class="world-data-num" id="new-recovered">-</div>
+              <div class="world-data-text">Nuevos recuperados</div>
             </div>
-            <div class="card recovery-rate">
-              <div class="world-data-num">595,039,3039</div>
-              <div class="world-data-text">Recovery Rate</div>
+            <div class="card recovered" >
+              <div class="world-data-num" id="recovered">-</div>
+              <div class="world-data-text">Total de recuperadoss</div>
             </div>
           </div>
         </div>
@@ -119,17 +119,17 @@
           <table class="content-table">
             <thead>
               <tr>
-                <th class="table-title">Name</th>
-                <th class="table-title">Confirmed</th>
-                <th class="table-title">Dead</th>
-                <th class="table-title">recovered</th>
-                <th class="table-title">New Deths</th>
-                <th class="table-title">New Recovered</th>
-                <th class="table-title">First name</th>
+                <th class="table-title">Pais</th>
+                <th class="table-title">Nuevos casos</th>
+                <th class="table-title">Confirmados</th>
+                <th class="table-title">Nuevos recuperados</th>
+                <th class="table-title">Recuperados</th>
+                <th class="table-title">Nuevas Defunciones</th>
+                <th class="table-title">Defunciones</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody id="tbody">
+              <!-- <tr>
                 <td><i class="fas fa-globe"></i>Domincan Republic</td>
                 <td>1,000,000</td>
                 <td>1,000,000</td>
@@ -138,106 +138,14 @@
                 <td>1,000,000</td>
                 <td>1,000,000</td>
               </tr>
-              <tr>
-                <td><i class="fas fa-globe"></i>Domincan Republic</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-globe"></i>Domincan Republic</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-globe"></i>Domincan Republic</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-globe"></i>Domincan Republic</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-globe"></i>Domincan Republic</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-globe"></i>Domincan Republic</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-globe"></i>Domincan Republic</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-globe"></i>Domincan Republic</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-globe"></i>Domincan Republic</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-globe"></i>Domincan Republic</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-              </tr>
+               -->
             </tbody>
           </table>
           
         </div>
       </section>
     </main>
-    <!-- 
-      <a href="https://www.vecteezy.com/free-vector/flag">Flag Vectors by Vecteezy</a>
-      <div>Iconos diseñados por <a href="https://www.flaticon.es/autores/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div> -->
-
+  
     <script src="/js/script.js"></script>
   </body>
 </html>
