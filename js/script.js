@@ -1,100 +1,124 @@
-// fetch('https://www.trackcorona.live/api/countries')
-// .then(response => response.json())
-// .then(response  => {
-//     console.log(response);
-// })
-
-//selecting cards ids
-
-const newConfirmed = document.getElementById("new-confirmed");
+const deathsRatio = document.getElementById("deaths-ratio");
 const confirmed = document.getElementById("confirmed");
-const newDeaths = document.getElementById("new-deaths");
+const tests = document.getElementById("tests");
+const positivityRatio = document.getElementById("positivity-ratio");
 const deaths = document.getElementById("deaths");
-const newRecovered = document.getElementById("new-recovered");
 const recovered = document.getElementById("recovered");
 const tbody = document.getElementById("tbody");
-const hol = document.getElementById("hol");
-//Functions that returns feth
-const getSumary = () => fetch("https://api.covid19api.com/summary");
-const get = (url) => fetch("https://api.covid19api.com/" + url);
-const test = () =>
-  fetch(
-    "https://api.covid19api.com/world?from=2020-02-01T00:00:00Z&to=2020-03-01T00:00:00Z"
-  );
-const GetCountryDayOne = () =>
-  fetch("https://api.covid19api.com/auth/subscriptions");
+const searchInput = document.getElementById("search-bar-input");
+const pieChart = document.getElementById("pie-chart");
 
 //functions
+//Functions that returns feth api
+const get = (url) => fetch("https://cov19.cc/report.json");
+
+//return de percentage between two numbers
+const percentage = (num1, num2) => (num1 / num2 * 100).toFixed(1);
 
 //adding the world data cards
-const addCards = (
-  globalInfo,
-  newConfirmed,
-  confirmed,
-  newDeaths,
-  deaths,
-  newRecovered,
-  recovered
-) => {
-  newConfirmed.textContent = new Intl.NumberFormat("en-US").format(
-    globalInfo.NewConfirmed
-  );
-  confirmed.textContent = new Intl.NumberFormat("en-US").format(
-    globalInfo.TotalConfirmed
-  );
-  newDeaths.textContent = new Intl.NumberFormat("en-US").format(
-    globalInfo.NewDeaths
-  );
-  deaths.textContent = new Intl.NumberFormat("en-US").format(
-    globalInfo.TotalDeaths
-  );
-  newRecovered.textContent = new Intl.NumberFormat("en-US").format(
-    globalInfo.NewRecovered
-  );
-  recovered.textContent = new Intl.NumberFormat("en-US").format(
-    globalInfo.TotalRecovered
-  );
+const addCards = (globalInfo) => {
+    deathsRatio.textContent = new Intl.NumberFormat("en-US").format(
+        percentage(globalInfo.deaths, globalInfo.confirmed)
+    );
+    confirmed.textContent = new Intl.NumberFormat("en-US").format(
+        globalInfo.confirmed
+    );
+    tests.textContent = new Intl.NumberFormat("en-US").format(
+        globalInfo.tests
+    );
+    deaths.textContent = new Intl.NumberFormat("en-US").format(globalInfo.deaths);
+    positivityRatio.textContent = new Intl.NumberFormat("en-US").format(
+        percentage(globalInfo.confirmed, globalInfo.tests)
+    );
+    recovered.textContent = new Intl.NumberFormat("en-US").format(
+        globalInfo.recovered
+    );
 };
 
 //adding countries in the table
-const showCountries = (countries) => {
-  let countryTemplate = '';
-  countries.map(function (val, index) {
-    countryTemplate += `<tr>
-  <td><i class="fas fa-globe"></i>${val.Country}</td>
-  <td>${val.NewConfirmed}</td>
-  <td>${val.TotalConfirmed}</td>
-  <td>${val.TotalRecovered}</td>
-  <td>${val.NewRecovered}</td>
-  <td>${val.NewDeaths}</td>
-  <td>${val.TotalDeaths}</td></tr>`;
-    tbody.innerHTML = countryTemplate;
-  });
-
+const showCountries = (countries, filter = "1") => {
+    let countryTemplate = "";
+    tbody.innerHTML = "";
+    countries.map(function(val, index) {
+        if (val.country.toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
+            countryTemplate +=
+                `<tr>
+            <td class="table-country"><img src="assets/country-icons/country-squared/${val.country_code}.png" alt="Bandera" class="country-icon">${val.country}</td>
+            <td>${new Intl.NumberFormat("en-US").format(val.confirmed)}<span class="new-cases">${new Intl.NumberFormat("en-US").format(val.daily_confirmed)}</span></td>
+            <td>${new Intl.NumberFormat("en-US").format(val.recovered)}</td>
+            <td>${new Intl.NumberFormat("en-US").format(val.deaths)}<span class="new-cases">${new Intl.NumberFormat("en-US").format(val.daily_deaths)}</span></td>
+            <td>${new Intl.NumberFormat("en-US").format(val.tests)}</td>
+            <td>${parseFloat(val.deaths_ratio).toFixed(1)}</td>
+                </tr>`;
+            tbody.innerHTML = countryTemplate;
+        }
+    });
 };
-//the brain code
 
+Chart.defaults.global.defaultFontSize = "16";
+//Creating a the graphic
+const Showgraphic = (globalInfo) => {
+    new Chart(pieChart, {
+        type: "pie",
+        data: {
+            labels: ["Confirmados", "Recuperados", "Defunciones"],
+            datasets: [{
+                borderColor: "#d8dce6",
+                label: ["Global Info", "sosjd", "jsdis", "ijasdioasjd"],
+                backgroundColor: ["#347fd5", "#0ee9cb", "#f35353"],
+                hoverBackgroundColor: ["#347fd5", "#0ee9cb", "#f35353"],
+                data: [
+                    globalInfo.confirmed,
+                    globalInfo.recovered,
+                    globalInfo.deaths,
+                ],
+            }, ],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                display: false,
+                labels: {
+                    fontColor: "#d8dce6",
+                },
+            },
+            title: {
+                display: true,
+                boxWidth: "2",
+                fontColor: "#d8dce6",
+
+                text: "Relación",
+            },
+            tooltips: {
+                enabled: false,
+                backgroundColor: "#161e2c",
+            },
+        },
+    });
+};
+//The Brain
 let getSumaryArray;
+get()
+    .then((response) => response.json())
+    .then((response) => {
+        console.log(response);
+        const globalInfo = response.regions.world.totals;
+        const countries = response.regions.world.list;
 
-//Obteniendo datos
+        console.log(countries[2]);
+        addCards(globalInfo);
 
-get("summary")
-  .then((response) => response.json())
-  .then((response) => {
-    let globalInfo;
-    globalInfo = response.Global;
-    console.log(response);
+        //let now = new Date();
+        // console.log(Date.parse(countries[0].Date));
+        // console.log(countries[0].Date);
+        // console.log(now);
+        showCountries(countries, "");
+        searchInput.addEventListener("keyup", (e) => {
+            showCountries(countries, searchInput.value);
+        });
 
-    addCards(
-      globalInfo,
-      newConfirmed,
-      confirmed,
-      newDeaths,
-      deaths,
-      newRecovered,
-      recovered
-    );
-    showCountries(response.Countries);
-    console.log(response.Countries);
+        console.log(percentage(countries[1].deaths, countries[1].confirmed));
 
-  });
+        Showgraphic(globalInfo);
+    });

@@ -2,463 +2,587 @@
 font-family: 'Open Sans', monospace;
 font-family: 'Roboto', sans-serif;
 */
+
 :root {
-  --bg: #161e2c;
-  --black-bg-lite: #1b2435;
-  --text-gray: #bebebe;
-  --text-color: #d8dce6;
-  --blue-light: #0ee9cb;
-  --red: #f35353;
-  --orange: #ff8a37;
-  --blue: #347fd5;
-  --yellow: #ffc137;
-  --pink: hsl(348, 97%, 59%);
+    --bg: #161e2c;
+    --black-bg-lite: #1b2435;
+    --text-gray: #bebebe;
+    --text-color: #d8dce6;
+    --blue-light: #0ee9cb;
+    --red: #f35353;
+    --orange: #ff8a37;
+    --blue: #347fd5;
+    --yellow: #ffc137;
+    --pink: hsl(348, 97%, 59%);
 }
+
+
 /* START Making styles */
+
 
 /* ENDMaking styles */
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
+    text-decoration: none;
 }
+
 body {
-  font-family: "Open Sans", monospace;
-  background: var(--bg);
+    font-family: "Open Sans", monospace;
+    background: var(--bg);
 }
+
+
 /* START header*/
 
 .header .nav {
-  background: var(--black-bg-lite);
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 40px;
-  color: var(--white-color);
-  margin-bottom: 30px;
-  border-bottom-style: none;
-  border-bottom: 1px solid #2a3549;
+    background: var(--black-bg-lite);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    color: var(--white-color);
+    margin-bottom: 30px;
+    border-bottom-style: none;
+    border-bottom: 1px solid #2a3549;
 }
 
 .nav .nav-item {
-  font-size: 1em;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
 }
+
+.nav .nav-item .logo {
+    cursor: pointer;
+}
+
+.nav .nav-item .h1 {
+    margin-left: 10px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
 .nav-item:nth-child(2) {
-  background: var(--bg);
-  padding: 8px 25px;
-  transition: 0.2s;
-  border-radius: 0.5em;
-  cursor: pointer;
-  border: 2px solid var(--blue);
+    background: var(--bg);
+    padding: 6px 10px;
+    transition: 0.2s;
+    border-radius: 0.5em;
+    cursor: pointer;
+    border: 2px solid var(--blue);
+    color: var(--text-gray);
 }
 
 .nav-item:nth-child(2):hover {
-  background: var(--bg);
-  border: 2px solid var(--blue-light);
+    background: var(--bg);
+    border: 2px solid var(--blue-light);
 }
+
+
 /*END header */
+
 .world {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  margin: 0 10px;
-  margin-bottom: 30px;
-}
-.aside-world {
-  width: 25%;
-  margin-top: 40px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 0 10px;
+    margin-bottom: 30px;
 }
 
-.aside-world::before {
-  content: "";
-  display: inline-block;
-  background: var(--red);
-}
-.event-time-lap {
-  display: flex;
-  justify-content: center;
-  padding: 0px 10px;
-  align-items: center;
-  margin: 0 auto;
-  margin-bottom: 10px;
-}
-
-.notice-list {
-  padding: 1em;
-  box-shadow: -3px 1px 4px 0px #1f293b;
-  border-radius: 20px;
-}
-.notice-item {
-  margin-bottom: 1em;
+.aside-graphics {
+    width: 25%;
+    margin-top: 100px;
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: flex-start;
+    height: 300px;
+    background: var(--black-bg-lite);
+    border-radius: 1.3em;
+    border: 1px solid #1f293b;
 }
 
-.event-time-lap .fa-chart-bar {
-  font-size: 1.7em;
-  padding: 0px 10px;
-}
-.world-notice {
-  border-radius: 15px;
-  width: 100%;
-  background: var(--black-bg-lite);
-  font-size: 1.1em;
-  display: flex;
-  flex-flow: column wrap;
+.aside-graphics .pie-chart-div {
+    position: relative;
+    height: 88%;
+    width: 88%;
+    padding: 0px;
+    padding-left: 0px;
+    margin: 0px;
 }
 
-.notice-new-notice {
-  color: var(--text-color);
+.aside-graphics .pie-chart-labels {
+    height: 20%;
+    position: absolute;
+    bottom: -30px;
 }
 
-.notice-new-notice::before {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background: var(--pink);
-  margin-right: 10px;
-  border-radius: 5px;
+.aside-graphics .pie-chart-label {
+    display: inline-block;
+    color: var(--text-gray);
+    font-size: 0.8em;
+    margin-right: 0.8em;
 }
+
+.aside-graphics .pie-chart-label::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 0.2em;
+}
+
+.aside-graphics .pie-chart-labels .label-1::before {
+    background: var(--blue);
+}
+
+.aside-graphics .pie-chart-labels .label-2::before {
+    background: var(--blue-light);
+}
+
+.aside-graphics .pie-chart-labels .label-3::before {
+    background: var(--red);
+}
+
 
 /* 
 Icons */
+
 .world-title-div {
-  position: relative;
+    position: relative;
 }
+
 .fa-long-arrow-alt-right {
-  font-size: 1.3em;
-  padding-right: 0.2em;
-  color: var(--pink);
-  position: absolute;
-  bottom: 20%;
+    font-size: 1.3em;
+    padding-right: 0.2em;
+    color: var(--pink);
+    position: absolute;
+    bottom: 20%;
 }
+
 
 /*END Icons */
 
+
 /*START Informacion global */
+
 .world-info {
-  border-radius: 1em;
-  width: 73%;
-  padding-top: 40px;
+    border-radius: 1em;
+    width: 73%;
+    padding-top: 40px;
 }
 
 .world-title {
-  margin-left: 10%;
+    margin-left: 10%;
 }
 
 .world-info .info-title {
-  font-size: 1.3em;
-  font-weight: 700;
-  line-height: 1.5em;
-  display: inline-block;
-  padding-right: 10px;
+    font-size: 1.3em;
+    font-weight: 700;
+    line-height: 1.5em;
+    display: inline-block;
+    padding-right: 10px;
 }
 
 .world-info .info-text {
-  font-size: 20px;
-  color: var(--text-gray);
+    font-size: 20px;
+    color: var(--text-gray);
 }
+
 .world-data {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
 }
 
 .world-data .card {
-  font-family: "Iceland", monospace;
-  width: 30%;
-  margin: 0px 10px;
-  height: 170px;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around;
-  align-items: center;
-  padding: 30px 0px;
-  font-weight: 400;
-  border-radius: 10px;
-  box-shadow: 0px 1px 0px 1px #1f293b;
-  font-size: 56px;
-  margin-bottom: 20px;
+    font-family: "Iceland", monospace;
+    width: 30%;
+    margin: 0px 10px;
+    height: 170px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 0px;
+    font-weight: 400;
+    border-radius: 10px;
+    box-shadow: 0px 1px 0px 1px #1f293b;
+    font-size: 56px;
+    margin-bottom: 20px;
+    margin-bottom: 1em;
 }
 
 .world-data-text {
-  color: var(--text-gray1);
-  font-size: 0.4em;
-  font-family: "Open Sans", normal;
-  font-weight: 400;
-
-  color: var(--text-gray);
+    color: var(--text-gray1);
+    font-size: 0.4em;
+    font-family: "Open Sans", normal;
+    font-weight: 400;
+    color: var(--text-gray);
 }
+
 .world-data-num {
-  font-size: 0.7em;
-  color: var(--text-color);
+    font-size: 0.8em;
+    color: var(--text-color);
 }
 
 .world-data .card:nth-child(1) .world-data-num {
-  color: var(--blue);
-}
-.world-data .card:nth-child(2) .world-data-num {
-  color: var(--pink);
-}
-.world-data .card:nth-child(3) .world-data-num {
-  color: var(--blue-light);
-}
-.world-data .card:nth-child(4) .world-data-num {
-  color: var(--yellow);
-}
-.world-data .card:nth-child(5) .world-data-num {
-  color: var(--red);
-}
-.world-data .card:nth-child(6) .world-data-num {
-  color: var(--orange);
+    color: var(--blue);
 }
 
+.world-data .card:nth-child(2) .world-data-num {
+    color: var(--blue-light);
+}
+
+.world-data .card:nth-child(3) .world-data-num {
+    color: var(--pink);
+}
+
+.world-data .card:nth-child(4) .world-data-num {
+    color: var(--orange);
+}
+
+.world-data .card:nth-child(5) .world-data-num {
+    color: var(--yellow);
+}
+
+.world-data .card:nth-child(6) .world-data-num {
+    color: var(--red);
+}
+
+
 /*START Global data per countries section TABLE*/
+
 .countries-data {
-  background: var(--black-bg-lite);
-  width: 85%;
-  margin: 0 auto;
-  padding: 2em;
-  border-radius: 1em;
-  max-width: 2100px;
+    background: var(--black-bg-lite);
+    width: 85%;
+    margin: 0 auto;
+    padding: 2em;
+    border-radius: 1.3em;
+    max-width: 2100px;
 }
 
 .countries-data .fa-globe {
-  padding-right: 10px;
+    padding-right: 10px;
 }
 
 .countries-data td:nth-child(2) {
-  color: var(--blue-light);
+    color: var(--blue);
 }
+
 .countries-data td:nth-child(3) {
-  color: var(--red);
+    color: var(--blue-light);
 }
+
 .countries-data td:nth-child(4) {
-  color: var(--orange);
+    color: var(--red);
 }
+
 .countries-data td:nth-child(5) {
-  color: var(--pink);
+    color: var(--yellow);
 }
+
 .countries-data td:nth-child(6) {
-  color: var(--blue);
+    color: var(--pink);
 }
-.countries-data td:nth-child(7) {
-  color: var(--yellow);
-}
+
 .countries-data-title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
+
 .countries-data-h2 {
-  font-size: 1.3em;
+    font-size: 1.1em;
 }
+
 .countries-data .fa-globe-americas {
-  font-size: 1.3em;
-  color: white;
-  margin-right: 0.2em;
+    font-size: 1.3em;
+    color: white;
+    margin-right: 0.2em;
 }
 
 .countries-data .countries-data-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
 }
 
 .countries-data .countries-data-header .search-bar {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
 }
+
 .countries-data .search-bar-label {
-  color: var(--text-gray);
-  font-size: 1em;
-  padding-right: 10px;
+    color: var(--text-gray);
+    font-size: 1em;
+    padding-right: 10px;
 }
+
 .countries-data .search-bar-input {
-  background: var(--black-bg-lite);
-  border-style: none;
-  background: var(--bg);
-  padding: 0.7em;
-  border-radius: 0.5em;
-  border: 2px solid var(--bg);
-  font-size: 0.7em;
+    background: var(--black-bg-lite);
+    border-style: none;
+    background: var(--bg);
+    width: 200px;
+    padding: 0.7em;
+    border-radius: 0.5em;
+    border: 2px solid var(--bg);
+    font-size: 0.7em;
 }
+
 .countries-data .search-bar-input:focus {
-  color: pink;
-  outline: none;
-  border-style: none;
-  border: 2px solid var(--pink);
+    color: pink;
+    outline: none;
+    border-style: none;
+    border: 2px solid var(--pink);
 }
 
 .table {
-  height: 500px;
-  margin: 0px;
-  padding: 0px;
-  overflow: auto;
-  margin-top: 1em;
+    height: 550px;
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
+    margin-top: 1em;
 }
+
 .content-table {
-  width: 100%;
-  background: var(--bg);
-  padding: 30px;
-  font-size: 1em;
-  border-collapse: collapse;
+    width: 100%;
+    background: var(--bg);
+    padding: 30px;
+    font-size: 1em;
+    border-collapse: collapse;
 }
 
 .content-table tr {
-  border: 3px solid var(--black-bg-lite);
-  text-align: left;
+    border: 3px solid var(--black-bg-lite);
+    text-align: left;
 }
 
 .content-table th,
 .content-table td {
-  padding: 10px 6px;
-  font-weight: 600;
+    padding: 10px 6px;
+    font-weight: 600;
 }
-.content-table tbody tr:nth-last-of-type(even) {
-  background: var(--black-bg-lite);
-}
-.content-table th {
-  background: var(--pink);
 
-  position: sticky;
-  top: 0;
-  margin: 0;
-  cursor: pointer;
+.content-table tbody tr:nth-last-of-type(even) {
+    background: var(--black-bg-lite);
 }
+
+.content-table tbody .new-cases {
+    display: block;
+    color: inherit;
+    font-size: 0.8em;
+}
+
+.content-table tbody .new-cases::before {
+    content: "+";
+}
+
+.content-table th {
+    background: var(--pink);
+    position: sticky;
+    top: 0;
+    margin: 0;
+    cursor: pointer;
+    height: 3em;
+}
+
+.countries-data .table-country {
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+
+.content-table .country-icon {
+    display: inline-block;
+    width: 35px;
+    height: 26px;
+    border-radius: 5px;
+    margin-right: 0.3em;
+}
+
 
 /* 
 .content-table thead tr th{
   color: var(--text-color);
   text-align: left;
 } */
+
+
 /*END Global data per countries section TABLE*/
 
-/* custom scrool bar */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 2px;
+
+/* Start footer section */
+
+.footer {
+    margin-top: 2em;
+    width: 100%;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 10px 10px;
+    font-family: 'Roboto', cursive;
+    font-family: 'Open Sans', monospace;
+    font-family: 'Iceland', monospace;
 }
+
+.footer p a {
+    color: #bebebe7e;
+}
+
+.footer p a:hover {
+    color: var(--pink);
+}
+
+
+/* End footer section */
+
+
+/* custom scrool bar */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 2px;
+}
+
 ::-webkit-scrollbar-thumb {
-  background: #445175;
-  background: linear-gradient(transparent, #445175);
+    background: #445175;
+    background: linear-gradient(#233047, #445175);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--pink);
+    background: var(--pink);
 }
 
-/* Responsive design */
-@media screen and (max-width: 1200px) {
-  .aside-world {
-    width: 28%;
-  }
-  .world-info {
-    width: 70%;
-  }
-  .world-data {
-    flex-flow: row wrap;
-  }
 
-  .world-data .card {
-    width: 45%;
-    height: 100px;
-    padding: 0;
-  }
-  .countries-data {
-    width: 95%;
-  }
+/* Responsive design */
+
+@media screen and (max-width: 1200px) {
+    .aside-graphics {
+        width: 28%;
+    }
+    .world-info {
+        width: 70%;
+    }
+    .world-data {
+        flex-flow: row wrap;
+    }
+    .world-data .card {
+        width: 45%;
+        height: 100px;
+        padding: 0;
+    }
+    .countries-data {
+        width: 95%;
+    }
 }
 
 @media screen and (max-width: 850px) {
-  .aside-world {
-    width: 40%;
-  }
-  .world-info {
-    width: 58%;
-  }
-  .world-data .card {
-    width: 100%;
-  }
-  .countries-data {
-    width: 98%;
-    margin: 0 auto;
-    padding: 0;
-    border-radius: 0;
-  }
-  .table {
-    width: 100%;
-    padding: 0;
-  }
-  .table .content-table {
-    padding: 0;
-    width: 100%;
-    margin: 0;
-  }
-  .countries-data .countries-data-header {
-    display: flex;
-    flex-flow: column;
-    text-align: left;
-    justify-content: center;
-    padding: 10px;
-    align-items: flex-start;
-  }
-  .countries-data .countries-data-title {
-    margin-bottom: 10px;
-  }
-
-  .countries-data .countries-data-header .search-bar {
-    width: 100%;
-    padding: 0;
-    margin: 0px;
-  }
-
-  .countries-data .countries-data-header .search-bar-input {
-    display: block;
-    width: 100%;
-  }
+    .aside-graphics {
+        width: 40%;
+    }
+    .world-info {
+        width: 58%;
+    }
+    .world-data .card {
+        width: 100%;
+    }
+    .countries-data {
+        width: 98%;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: 0;
+    }
+    .table {
+        width: 100%;
+        padding: 0;
+    }
+    .table .content-table {
+        padding: 0;
+        width: 100%;
+        margin: 0;
+    }
+    .countries-data .countries-data-header {
+        display: flex;
+        flex-flow: column;
+        text-align: left;
+        justify-content: center;
+        padding: 10px;
+        align-items: flex-start;
+    }
+    .countries-data .countries-data-title {
+        margin-bottom: 10px;
+        margin-top: 5px;
+        padding: 2px 0px;
+    }
+    .countries-data .countries-data-header .search-bar {
+        width: 100%;
+        padding: 0;
+        margin: 0px;
+    }
+    .countries-data .countries-data-header .search-bar-input {
+        display: block;
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 768px) {
-  .aside-world {
-    text-align: center;
-    width: auto;
-    padding: 10px;
-    margin: 0 auto;
-    display: none;
-  }
-
-  .world {
-    width: 100%;
-    margin: 0;
-  }
-  .world-data .card {
-    height: 80px;
-    box-shadow: none;
-    font-weight: bold;
-    width: 100%;
-  }
-  .world-info {
-    width: 100%;
-  }
-  .world-title {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
-    width: 100%;
-  }
-
-  .world-title-div {
-    margin: 0 auto;
-    text-align: center;
-  }
-  .info-text {
-    text-align: center;
-  }
+    .header .nav {
+        padding: 0px 14px;
+        flex-flow: column;
+    }
+    .nav-item:nth-child(2) {
+        border: 2px solid transparent;
+        background: blueviolet;
+    }
+    .aside-graphics {
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        margin: 0 auto;
+        background: none;
+        border: none;
+        height: 200px;
+    }
+    .aside-graphics .pie-chart-div {
+        width: 80%;
+        height: 80%;
+    }
+    .aside-graphics .pie-chart-labels {
+        bottom: 0;
+    }
+    .world {
+        width: 100%;
+        margin: 0;
+    }
+    .world-data .card {
+        height: 80px;
+        box-shadow: none;
+        font-weight: bold;
+        width: 100%;
+    }
+    .world-info {
+        width: 100%;
+    }
+    .world-title {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+    }
+    .world-title-div {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .info-text {
+        text-align: center;
+    }
 }

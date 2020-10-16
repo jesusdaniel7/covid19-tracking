@@ -1,101 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css" />
-     <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.0/css/all.css"
-      integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Iceland&family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@100;300;400;500;700&display=swap"
-      rel="stylesheet"
-    /> 
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css" integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Iceland&family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+
+<body>
     <header class="header">
-      <nav class="nav">
-        <div class="nav-item">CORONANDO</div>
-        <div class="nav-item">Donar</div>
+        <nav class="nav">
+            <div class="nav-item">
+                <img src="/assets/coronavirus.png" width="60px" class="logo" alt="" />
+                <h1 class="h1"><a href="/index.html">CORONANDO</a></h1>
+            </div>
+            <div class="nav-item">
+                <a href="https://github.com/jesusdaniel7" target="_blank">Contribuir</a
+          >
+        </div>
       </nav>
     </header>
 
     <main>
-       <section class="world">
-        <aside class="aside-world">
-          <div class="event-time-lap">
-            <i class="far fa-chart-bar"></i>
-            <h3>Linea de tiempo (GMT)</h3>
-            </div>
-          <article class="world-notice">
-            <div class="search-bar"></div>
-            <div class="notice-list">
-              <div class="notice-item">
-                <p>
-                  <span class="notice-new-notice">503</span>                  Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-              </div>
-     
-              <div class="notice-item">
-                <p>
-                  <span class="notice-new-notice">503</span>                  Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-              </div>
-     
-              <div class="notice-item">
-                <p>
-                  <span class="notice-new-notice">503</span>                  Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-              </div>
-     
-              <div class="notice-item">
-                <p>
-                  <span class="notice-new-notice">503</span>                  Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-              </div>
-     
-              <div class="notice-item">
-                <p>
-                  <span class="notice-new-notice">503</span>                  Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-              </div>
-     
-               </div>
-            </aside>
-          </article>
-        </div>
+      <section class="world">
+        <aside class="aside-graphics">
+          <div class="pie-chart-div">
+            <canvas class="pie-chart" id="pie-chart"></canvas>
+          </div>
+          <div class="pie-chart-labels">
+            <span class="pie-chart-label label-1">Confirmados</span>
+            <span class="pie-chart-label label-2">Recuperados</span>
+            <span class="pie-chart-label label-3">Muertes</span>
+          </div>
+        </aside>
+
         <div class="world-info">
           <div class="world-title">
             <div class="world-title-div">
               <h2 class="info-title">INFORMACION GLOBAL</h2>
               <i class="fas fa-long-arrow-alt-right"></i>
             </div>
-        
-            <p class="info-text">Actualizacion Reciente</p>
+            <p class="info-text">Actualización reciente</p>
           </div>
           <div class="world-data" id="world-data">
-            <div class="card new-confirmed">
-              <div class="world-data-num" id="new-confirmed">-</div>
-              <div class="world-data-text">Nuevos casos</div>
-            </div>
-            <div class="card confirmed" >
+            <div class="card ">
               <div class="world-data-num" id="confirmed">-</div>
-              <div class="world-data-text">Total de casos</div>
+              <div class="world-data-text">Confirmados</div>
             </div>
-            <div class="card new-deaths">
-              <div class="world-data-num" id="new-deaths">-</div>
-              <div class="world-data-text">Nuevas muertes</div>
-            </div>
-            <div class="card deaths" >
-              <div class="world-data-num" id="deaths">-</div>
-              <div class="world-data-text">Total de muertes</div>
-            </div>
-            <div class="card new-recovered" >
-              <div class="world-data-num" id="new-recovered">-</div>
-              <div class="world-data-text">Nuevos recuperados</div>
-            </div>
-            <div class="card recovered" >
+
+            <div class="card">
               <div class="world-data-num" id="recovered">-</div>
-              <div class="world-data-text">Total de recuperadoss</div>
+              <div class="world-data-text">Recuperados</div>
+            </div>
+            <div class="card">
+              <div class="world-data-num" id="deaths">-</div>
+              <div class="world-data-text">Muertes</div>
+            </div>
+            <div class="card">
+              <div class="world-data-num" id="tests">-</div>
+              <div class="world-data-text">Pruebas realizadas</div>
+            </div>
+            <div class="card">
+              <div class="world-data-num" id="positivity-ratio">-</div>
+              <div class="world-data-text">Positividad</div>
+            </div>
+            <div class="card">
+              <div class="world-data-num" id="deaths-ratio">-</div>
+              <div class="world-data-text">Letalidad</div>
             </div>
           </div>
         </div>
@@ -120,32 +95,28 @@
             <thead>
               <tr>
                 <th class="table-title">Pais</th>
-                <th class="table-title">Nuevos casos</th>
                 <th class="table-title">Confirmados</th>
-                <th class="table-title">Nuevos recuperados</th>
                 <th class="table-title">Recuperados</th>
-                <th class="table-title">Nuevas Defunciones</th>
-                <th class="table-title">Defunciones</th>
+                <th class="table-title">Muertes</th>
+                <th class="table-title">Pruebas</th>
+                <th class="table-title">Letalidad</th>
               </tr>
             </thead>
             <tbody id="tbody">
-              <!-- <tr>
-                <td><i class="fas fa-globe"></i>Domincan Republic</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-                <td>1,000,000</td>
-              </tr>
-               -->
             </tbody>
           </table>
-          
         </div>
       </section>
     </main>
-  
+
+    <footer class="footer">
+      <p>
+        <a href="https://twitter.com/DanielJesuscr" target="_blank"
+          >By: Jesus Daniel Pache</a
+        >
+      </p>
+    </footer>
+
     <script src="/js/script.js"></script>
   </body>
 </html>
