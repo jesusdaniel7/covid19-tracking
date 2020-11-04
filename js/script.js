@@ -40,17 +40,19 @@ const showCountries = (countries, filter = "1") => {
     let countryTemplate = "";
     tbody.innerHTML = "";
     countries.map(function(val, index) {
-        if (val.country.toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
-            countryTemplate +=
-                `<tr>
-            <td class="table-country"><img src="assets/country-icons/country-squared/${val.country_code}.png" alt="Bandera" class="country-icon">${val.country}</td>
-            <td>${new Intl.NumberFormat("en-US").format(val.confirmed)}<span class="new-cases">${new Intl.NumberFormat("en-US").format(val.daily_confirmed)}</span></td>
-            <td>${new Intl.NumberFormat("en-US").format(val.recovered)}</td>
-            <td>${new Intl.NumberFormat("en-US").format(val.deaths)}<span class="new-cases">${new Intl.NumberFormat("en-US").format(val.daily_deaths)}</span></td>
-            <td>${new Intl.NumberFormat("en-US").format(val.tests)}</td>
-            <td>${parseFloat(val.deaths_ratio).toFixed(1)}</td>
+        if (typeof val.country != 'undefined' && filter != 'undefined') {
+            if (val.country.toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
+                countryTemplate +=
+                    `<tr>
+                <td class="table-country"><img src="assets/country-icons/country-squared/${val.country_code}.png" alt="Bandera" class="country-icon">${val.country}</td>
+                <td>${new Intl.NumberFormat("en-US").format(val.confirmed)}<span class="new-cases">${new Intl.NumberFormat("en-US").format(val.daily_confirmed)}</span></td>
+                <td>${new Intl.NumberFormat("en-US").format(val.recovered)}</td>
+                <td>${new Intl.NumberFormat("en-US").format(val.deaths)}<span class="new-cases">${new Intl.NumberFormat("en-US").format(val.daily_deaths)}</span></td>
+                <td>${new Intl.NumberFormat("en-US").format(val.tests)}</td>
+                <td>${parseFloat(val.deaths_ratio).toFixed(1)}</td>
                 </tr>`;
-            tbody.innerHTML = countryTemplate;
+                tbody.innerHTML = countryTemplate;
+            }
         }
     });
 };
@@ -96,6 +98,7 @@ const Showgraphic = (globalInfo) => {
             },
         },
     });
+
 };
 //The Brain
 let getSumaryArray;
@@ -105,20 +108,9 @@ get()
         console.log(response);
         const globalInfo = response.regions.world.totals;
         const countries = response.regions.world.list;
-
-        console.log(countries[2]);
         addCards(globalInfo);
-
-        //let now = new Date();
-        // console.log(Date.parse(countries[0].Date));
-        // console.log(countries[0].Date);
-        // console.log(now);
         showCountries(countries, "");
         searchInput.addEventListener("keyup", (e) => {
             showCountries(countries, searchInput.value);
         });
-
-        console.log(percentage(countries[1].deaths, countries[1].confirmed));
-
-        Showgraphic(globalInfo);
     });
